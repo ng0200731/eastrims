@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { LocaleSwitcher } from './LocaleSwitcher'
 
 const NAV_LINKS = [
   { href: '/products', label: 'Products' },
@@ -30,12 +31,17 @@ export function Navbar() {
             </li>
           ))}
         </ul>
-        <Link
-          href="/quote"
-          className="cursor-pointer rounded-full bg-gradient-to-br from-accent-gold to-accent-gold-bright px-5 py-2 text-sm font-medium text-bg-base transition-transform duration-200 hover:scale-[1.02]"
-        >
-          Request Quote
-        </Link>
+        <div className="flex items-center gap-3">
+          <div className="hidden md:block">
+            <LocaleSwitcher />
+          </div>
+          <Link
+            href="/quote"
+            className="cursor-pointer rounded-full bg-gradient-to-br from-accent-gold to-accent-gold-bright px-5 py-2 text-sm font-medium text-bg-base transition-transform duration-200 hover:scale-[1.02]"
+          >
+            Request Quote
+          </Link>
+        </div>
       </nav>
     </header>
   )
