@@ -51,3 +51,21 @@ export const marketingVideosByPlatformQuery = groq`*[_type == "marketingVideo" &
   product->{ title, "slug": slug.current },
   cdnUrl, thumbnailUrl, durationSeconds
 }`
+
+export const allProductsQuery = groq`*[_type == "product"] | order(publishedAt desc) {
+  title, "slug": slug.current, shortDescription,
+  "heroImageUrl": heroImage.asset->url,
+  "model3dUrl": model3d.asset->url,
+  leadTime, minOrderQuantity,
+  category->{ title, "slug": slug.current }
+}`
+
+export const productsByCategoryQuery = groq`*[_type == "product" && category->slug.current == $category] | order(publishedAt desc) {
+  title, "slug": slug.current, shortDescription,
+  "heroImageUrl": heroImage.asset->url,
+  "model3dUrl": model3d.asset->url,
+  leadTime, minOrderQuantity,
+  category->{ title, "slug": slug.current }
+}`
+
+export const allProductSlugsQuery = groq`*[_type == "product" && defined(slug.current)].slug.current`
