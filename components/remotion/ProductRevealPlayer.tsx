@@ -11,7 +11,7 @@ interface ProductRevealPlayerProps {
 /** Plays the Remotion ProductReveal composition in-browser (no server render). */
 export function ProductRevealPlayer({ productName, subtitle }: ProductRevealPlayerProps) {
   return (
-    <div className="overflow-hidden rounded-2xl border border-border-subtle bg-black">
+    <div className="overflow-hidden rounded-2xl border border-border-subtle bg-white">
       <Player
         component={ProductReveal}
         inputProps={{ productName, subtitle }}

@@ -5,22 +5,25 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  /* Brand color tokens (spec §4.3) */
-  --color-bg-base: #0a0a0b;
-  --color-bg-elevated: #111114;
-  --color-surface: #1a1a1f;
-  --color-surface-hover: #25252b;
-  --color-border-subtle: rgba(255, 255, 255, 0.08);
+  /* Brand color tokens — minimal light. White canvas, near-black type, soft
+     grays for layering, gold as the single restrained accent (metallic-thread
+     motif). Deep gold is used for text/icons (AA on white); bright gold for
+     CTA fills. */
+  --color-bg-base: #ffffff;
+  --color-bg-elevated: #ffffff;
+  --color-surface: #f6f6f7;
+  --color-surface-hover: #ededee;
+  --color-border-subtle: rgba(0, 0, 0, 0.08);
 
-  --color-text-primary: #f5f5f7;
-  --color-text-muted: #a1a1aa;
+  --color-text-primary: #0a0a0b;
+  --color-text-muted: #6b7280;
 
-  --color-accent-gold: #c9a961;
-  --color-accent-gold-bright: #d4af37;
-  --color-accent-bronze: #8b7355;
+  --color-accent-gold: #9a7b3f;
+  --color-accent-gold-bright: #c9a961;
+  --color-accent-bronze: #7c5e2e;
 
-  --color-success: #4ade80;
-  --color-error: #f87171;
+  --color-success: #16a34a;
+  --color-error: #dc2626;
 
   /* Font families (wired via next/font in lib/fonts.ts) */
   --font-display: "Space Grotesk", sans-serif;
@@ -28,12 +31,9 @@
   --font-mono: "JetBrains Mono", monospace;
 }
 
-/*
-  Dark-first: bridge shadcn semantic tokens to the brand palette (spec §4.3).
-  The site is dark by default; no `.dark` class is required.
-*/
+/* Light-first: bridge shadcn semantic tokens to the brand palette. */
 :root {
-  color-scheme: dark;
+  color-scheme: light;
   --radius: 0.625rem;
 
   /* z-index scale (spec §4.5) — reference constants */
@@ -48,10 +48,10 @@
   --foreground: var(--color-text-primary);
   --card: var(--color-surface);
   --card-foreground: var(--color-text-primary);
-  --popover: var(--color-bg-elevated);
+  --popover: var(--color-bg-base);
   --popover-foreground: var(--color-text-primary);
   --primary: var(--color-accent-gold);
-  --primary-foreground: var(--color-bg-base);
+  --primary-foreground: #ffffff;
   --secondary: var(--color-surface-hover);
   --secondary-foreground: var(--color-text-primary);
   --muted: var(--color-surface);
@@ -67,10 +67,10 @@
   --chart-3: var(--color-text-muted);
   --chart-4: var(--color-surface-hover);
   --chart-5: var(--color-surface);
-  --sidebar: var(--color-bg-elevated);
+  --sidebar: var(--color-bg-base);
   --sidebar-foreground: var(--color-text-primary);
   --sidebar-primary: var(--color-accent-gold);
-  --sidebar-primary-foreground: var(--color-bg-base);
+  --sidebar-primary-foreground: #ffffff;
   --sidebar-accent: var(--color-surface-hover);
   --sidebar-accent-foreground: var(--color-text-primary);
   --sidebar-border: var(--color-border-subtle);

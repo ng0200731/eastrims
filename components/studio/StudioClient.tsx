@@ -13,8 +13,8 @@ const NextStudio = dynamic(
     loading: () => (
       <div
         style={{
-          background: '#0a0a0b',
-          color: '#f5f5f7',
+          background: '#ffffff',
+          color: '#6b7280',
           minHeight: '100vh',
           display: 'flex',
           alignItems: 'center',

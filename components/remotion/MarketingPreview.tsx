@@ -37,7 +37,7 @@ export function MarketingPreview({ productName, subtitle }: MarketingPreviewProp
 
       <div
         className={cn(
-          'mx-auto mt-6 overflow-hidden rounded-2xl border border-border-subtle bg-black',
+          'mx-auto mt-6 overflow-hidden rounded-2xl border border-border-subtle bg-white',
           isPortrait ? 'max-w-[340px]' : 'max-w-3xl'
         )}
       >

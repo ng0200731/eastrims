@@ -8,7 +8,7 @@ storytelling, an interactive product viewer, and an AI-powered quote assistant.
 ## Tech stack
 
 - **Next.js 16** (App Router, RSC) · **React 19** · **TypeScript** (strict)
-- **Tailwind CSS v4** + **shadcn/ui** (dark luxury + gold design tokens)
+- **Tailwind CSS v4** + **shadcn/ui** (minimal light theme, gold accent)
 - **Three.js** + **React Three Fiber** + **Drei** + **postprocessing** (live 3D)
 - **Remotion** + **@remotion/player** (cinematic compositions, multi-platform)
 - **GSAP** + **Framer Motion** + **Lenis** (animation & smooth scroll)

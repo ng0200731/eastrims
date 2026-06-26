@@ -47,7 +47,7 @@ export default async function MaterialsPage() {
                   <div
                     className="h-full w-full transition-transform duration-500 group-hover:scale-105"
                     style={{
-                      background: `linear-gradient(135deg, ${m.shaderConfig?.baseColor ?? '#1a1a1f'}, ${m.shaderConfig?.baseColor ?? '#1a1a1f'}cc)`,
+                      background: `linear-gradient(135deg, ${m.shaderConfig?.baseColor ?? '#eef0f2'}, ${m.shaderConfig?.baseColor ?? '#eef0f2'}cc)`,
                     }}
                   />
                 )}

@@ -18,28 +18,28 @@ function WovenLabel() {
   return (
     <group ref={group}>
       <Float speed={1.6} rotationIntensity={0.25} floatIntensity={0.5}>
-        {/* Base plate */}
+        {/* Light metallic base plate (reads clean on white) */}
         <RoundedBox args={[3.2, 1.7, 0.16]} radius={0.08} smoothness={4}>
-          <meshStandardMaterial color="#16161b" metalness={0.95} roughness={0.28} />
+          <meshStandardMaterial color="#e9e9ec" metalness={0.6} roughness={0.35} />
         </RoundedBox>
         {/* Gold accent plate */}
         <RoundedBox args={[2.8, 0.5, 0.18]} radius={0.05} smoothness={4} position={[0, 0, 0.02]}>
           <meshStandardMaterial
             color="#c9a961"
             metalness={1}
-            roughness={0.2}
-            emissive="#3a2e15"
-            emissiveIntensity={0.35}
+            roughness={0.22}
+            emissive="#9a7b3f"
+            emissiveIntensity={0.12}
           />
         </RoundedBox>
         {/* Detail threads */}
         <mesh position={[0, 0.55, 0.09]}>
           <boxGeometry args={[2.2, 0.025, 0.012]} />
-          <meshStandardMaterial color="#c9a961" metalness={1} roughness={0.25} />
+          <meshStandardMaterial color="#9a7b3f" metalness={1} roughness={0.3} />
         </mesh>
         <mesh position={[0, -0.55, 0.09]}>
           <boxGeometry args={[1.5, 0.025, 0.012]} />
-          <meshStandardMaterial color="#8b7355" metalness={1} roughness={0.3} />
+          <meshStandardMaterial color="#7c5e2e" metalness={1} roughness={0.3} />
         </mesh>
       </Float>
     </group>
@@ -47,18 +47,18 @@ function WovenLabel() {
 }
 
 export function HeroScene() {
+  // Transparent canvas so the page background shows through (minimal).
   return (
-    <Canvas camera={{ position: [0, 0, 6], fov: 42 }} dpr={[1, 2]} gl={{ antialias: true }}>
-      <color attach="background" args={['#0a0a0b']} />
-      <ambientLight intensity={0.5} />
-      <directionalLight position={[5, 6, 5]} intensity={2} color="#fff4d6" />
-      <directionalLight position={[-5, -3, -2]} intensity={0.6} color="#8b7355" />
+    <Canvas camera={{ position: [0, 0, 6], fov: 42 }} dpr={[1, 2]} gl={{ antialias: true, alpha: true }}>
+      <ambientLight intensity={0.8} />
+      <directionalLight position={[5, 6, 5]} intensity={1.4} color="#fff8ec" />
+      <directionalLight position={[-5, -3, -2]} intensity={0.4} color="#c9a961" />
       <Suspense fallback={null}>
         <WovenLabel />
-        <Sparkles count={70} scale={[9, 6, 4]} size={2.4} speed={0.3} color="#c9a961" opacity={0.5} />
+        <Sparkles count={70} scale={[9, 6, 4]} size={2.4} speed={0.3} color="#c9a961" opacity={0.6} />
         <Environment preset="studio" />
       </Suspense>
-      <Bloom intensity={0.5} luminanceThreshold={0.55} mipmapBlur luminanceSmoothing={0.2} />
+      <Bloom intensity={0.15} luminanceThreshold={0.85} mipmapBlur luminanceSmoothing={0.2} />
     </Canvas>
   )
 }

@@ -71,7 +71,7 @@ function Globe() {
       {/* Globe core */}
       <mesh>
         <sphereGeometry args={[RADIUS, 48, 48]} />
-        <meshStandardMaterial color="#0d1117" metalness={0.4} roughness={0.7} />
+        <meshStandardMaterial color="#ebedf0" metalness={0.1} roughness={0.9} />
       </mesh>
       {/* Wireframe grid */}
       <mesh>

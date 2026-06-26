@@ -5,14 +5,13 @@ interface ProductRevealProps {
   subtitle?: string
 }
 
-const GOLD = '#c9a961'
-const GOLD_BRIGHT = '#d4af37'
-const TEXT = '#f5f5f7'
-const MUTED = '#a1a1aa'
+const GOLD = '#9a7b3f'
+const GOLD_BRIGHT = '#c9a961'
+const TEXT = '#0a0a0b'
+const MUTED = '#6b7280'
 
 /**
- * Cinematic product reveal (MPC-style): black → gold light streak → wordmark →
- * product name → spec chips → CTA. 5s @ 30fps.
+ * Cinematic product reveal (MPC-style) on a clean white canvas. 5s @ 30fps.
  * Played in-browser via @remotion/player (no server render needed).
  */
 export function ProductReveal({ productName, subtitle }: ProductRevealProps) {
@@ -33,7 +32,7 @@ export function ProductReveal({ productName, subtitle }: ProductRevealProps) {
   })
 
   return (
-    <AbsoluteFill style={{ backgroundColor: '#0a0a0b', justifyContent: 'center', alignItems: 'center', fontFamily: 'Inter, sans-serif' }}>
+    <AbsoluteFill style={{ backgroundColor: '#ffffff', justifyContent: 'center', alignItems: 'center', fontFamily: 'Inter, sans-serif' }}>
       {/* Light streak */}
       <div
         style={{
@@ -42,7 +41,7 @@ export function ProductReveal({ productName, subtitle }: ProductRevealProps) {
           bottom: 0,
           left: `${streakX}%`,
           width: '40%',
-          background: `linear-gradient(90deg, transparent, ${GOLD}55, transparent)`,
+          background: `linear-gradient(90deg, transparent, ${GOLD_BRIGHT}33, transparent)`,
           filter: 'blur(8px)',
         }}
       />
@@ -101,7 +100,7 @@ export function ProductReveal({ productName, subtitle }: ProductRevealProps) {
             marginTop: 48,
             display: 'inline-block',
             background: `linear-gradient(135deg, ${GOLD}, ${GOLD_BRIGHT})`,
-            color: '#0a0a0b',
+            color: TEXT,
             fontWeight: 600,
             fontSize: 18,
             padding: '14px 32px',
