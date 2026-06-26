@@ -10,6 +10,8 @@ import { PortableText } from '@/components/PortableText'
 import { ProductCard } from '@/components/ProductCard'
 import { SectionHeading } from '@/components/Section'
 import { JsonLd } from '@/components/JsonLd'
+import { CapabilityGate } from '@/components/three/CapabilityGate'
+import { ProductViewer } from '@/components/three/ProductViewer'
 
 export const revalidate = 60
 
@@ -134,6 +136,22 @@ export default async function ProductPage({ params }: PageProps) {
           )}
         </div>
       </div>
+
+      <section className="mt-16">
+        <h2 className="font-display text-2xl font-semibold tracking-tight md:text-3xl">
+          Interactive 3D preview
+        </h2>
+        <div className="mt-6 rounded-2xl border border-border-subtle bg-bg-elevated p-4">
+          <CapabilityGate
+            full={<ProductViewer modelUrl={product.model3dUrl} />}
+            fallback={
+              <p className="py-20 text-center text-sm text-text-muted">
+                3D preview is available on devices with WebGL support.
+              </p>
+            }
+          />
+        </div>
+      </section>
 
       {product.description && (
         <section className="mt-16 max-w-3xl">

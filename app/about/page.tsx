@@ -6,6 +6,10 @@ import { Container } from '@/components/layout/Container'
 import { SectionHeading } from '@/components/Section'
 import { StatsSection } from '@/components/home/StatsSection'
 import { Reveal } from '@/components/Reveal'
+import { CapabilityGate } from '@/components/three/CapabilityGate'
+import { SupplyGlobe } from '@/components/three/SupplyGlobe'
+
+const REGIONS = ['China', 'Vietnam', 'Bangladesh', 'Indonesia', 'Turkey', 'USA', 'Europe']
 
 export const revalidate = 60
 
@@ -51,6 +55,37 @@ export default async function AboutPage() {
               </div>
             </Reveal>
           ))}
+        </div>
+      </Container>
+
+      <Container className="pb-16">
+        <h2 className="font-display text-3xl font-semibold tracking-tight md:text-4xl">
+          A global manufacturing network
+        </h2>
+        <p className="mt-3 max-w-2xl text-text-muted">
+          Production and shipping across five continents — routed for lead time, capacity, and proximity to your supply chain.
+        </p>
+        <div className="mt-10 grid grid-cols-1 items-center gap-10 lg:grid-cols-2">
+          <div className="relative aspect-square">
+            <CapabilityGate
+              full={<SupplyGlobe />}
+              fallback={
+                <div className="flex h-full min-h-[280px] items-center justify-center rounded-2xl border border-border-subtle bg-surface font-display text-text-muted/40">
+                  [Globe]
+                </div>
+              }
+            />
+          </div>
+          <ul className="grid grid-cols-2 gap-3">
+            {REGIONS.map((region) => (
+              <li
+                key={region}
+                className="flex items-center gap-3 rounded-lg border border-border-subtle bg-surface px-4 py-3 text-text-muted"
+              >
+                <span className="h-2 w-2 rounded-full bg-accent-gold" /> {region}
+              </li>
+            ))}
+          </ul>
         </div>
       </Container>
 
