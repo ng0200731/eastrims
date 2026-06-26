@@ -1,6 +1,10 @@
 import type { Metadata } from 'next'
 import { displayFont, bodyFont, monoFont } from '@/lib/fonts'
 import './globals.css'
+import { Geist } from "next/font/google";
+import { cn } from "@/lib/utils";
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 export const metadata: Metadata = {
   title: {
@@ -17,7 +21,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${displayFont.variable} ${bodyFont.variable} ${monoFont.variable}`}
+      className={cn(displayFont.variable, bodyFont.variable, monoFont.variable, "font-sans", geist.variable)}
     >
       <body className="bg-bg-base text-text-primary antialiased">
         {children}
