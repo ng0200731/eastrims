@@ -1,11 +1,11 @@
 import type { Metadata } from 'next'
 import { Container } from '@/components/layout/Container'
 import { SectionHeading } from '@/components/Section'
-import { ContactForm } from '@/components/ContactForm'
+import { QuoteWizard } from '@/components/quote/QuoteWizard'
 
 export const metadata: Metadata = {
   title: 'Request a Quote',
-  description: 'Tell us about your garment, quantities, and timeline.',
+  description: 'Answer a few questions or describe your needs — we will match you to the right materials and lead times.',
 }
 
 export default function QuotePage() {
@@ -16,12 +16,12 @@ export default function QuotePage() {
           center
           eyebrow="Get started"
           title="Request a quote"
-          subtitle="Share your requirements and we'll match you to the right materials and lead times. (An AI-guided assistant arrives in Phase 4.)"
+          subtitle="Answer a few questions or describe your needs in plain language — we'll match you to the right materials and lead times."
         />
       </div>
       <Container className="mx-auto max-w-2xl pb-24">
         <div className="rounded-3xl border border-border-subtle bg-bg-elevated p-6 md:p-10">
-          <ContactForm ctaLabel="Request Quote" />
+          <QuoteWizard />
         </div>
       </Container>
     </>

@@ -12,6 +12,7 @@
     "test:watch": "vitest"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.106.0",
     "@base-ui/react": "^1.6.0",
     "@portabletext/react": "^6.2.0",
     "@react-three/drei": "^10.7.7",
@@ -33,6 +34,7 @@
     "react": "19.2.4",
     "react-dom": "19.2.4",
     "remotion": "^4.0.483",
+    "resend": "^6.16.0",
     "sanity": "^6.2.0",
     "shadcn": "^4.11.1",
     "styled-components": "^6.4.3",
