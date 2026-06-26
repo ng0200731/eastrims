@@ -7,7 +7,7 @@ import type { QuoteLeadInput } from './types'
  * token is configured; otherwise returns a local id (graceful no-op).
  */
 export async function persistLead(data: QuoteLeadInput & { summary?: string }) {
-  if (!canWriteToSanity()) {
+  if (!canWriteToSanity() || !writeClient) {
     return { id: `local-${Date.now()}`, persisted: false as const }
   }
 

@@ -1,15 +1,18 @@
 import 'server-only'
 import { createClient } from '@sanity/client'
-import { projectId, dataset, apiVersion } from './env'
+import { projectId, dataset, apiVersion, isSanityConfigured } from './env'
 
-/** Write client — only mutates when SANITY_API_WRITE_TOKEN is set. */
-export const writeClient = createClient({
-  projectId,
-  dataset,
-  apiVersion,
-  useCdn: false,
-  token: process.env.SANITY_API_WRITE_TOKEN,
-  perspective: 'published',
-})
+/** Write client — only created when Sanity is configured. `null` otherwise. */
+export const writeClient = isSanityConfigured
+  ? createClient({
+      projectId,
+      dataset,
+      apiVersion,
+      useCdn: false,
+      token: process.env.SANITY_API_WRITE_TOKEN,
+      perspective: 'published',
+    })
+  : null
 
-export const canWriteToSanity = () => Boolean(process.env.SANITY_API_WRITE_TOKEN)
+export const canWriteToSanity = () =>
+  isSanityConfigured && Boolean(process.env.SANITY_API_WRITE_TOKEN)

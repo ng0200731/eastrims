@@ -1,21 +1,15 @@
 import { createClient } from '@sanity/client'
-import { projectId, dataset, apiVersion, useCdn, token } from './env'
+import { projectId, dataset, apiVersion, useCdn, token, isSanityConfigured } from './env'
 
-/** Public client (CDN, read-only, no token) */
-export const client = createClient({
-  projectId,
-  dataset,
-  apiVersion,
-  useCdn,
-  perspective: 'published',
-})
+/**
+ * Clients are only created when Sanity is configured with a valid project ID.
+ * When unconfigured they are `null` and reads throw (caught by callers) so the
+ * app renders fallback content instead of crashing at import time.
+ */
+export const client = isSanityConfigured
+  ? createClient({ projectId, dataset, apiVersion, useCdn, perspective: 'published' })
+  : null
 
-/** Server client supports draft preview when a token is present */
-export const serverClient = createClient({
-  projectId,
-  dataset,
-  apiVersion,
-  useCdn: false,
-  token,
-  perspective: 'published',
-})
+export const serverClient = isSanityConfigured
+  ? createClient({ projectId, dataset, apiVersion, useCdn: false, token, perspective: 'published' })
+  : null
