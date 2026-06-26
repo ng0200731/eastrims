@@ -15,6 +15,7 @@ import { HeroSection } from '@/components/home/HeroSection'
 import { StatsSection } from '@/components/home/StatsSection'
 import { CategoryShowcase } from '@/components/home/CategoryShowcase'
 import { FeaturedProducts } from '@/components/home/FeaturedProducts'
+import { CraftsmanshipStory } from '@/components/home/CraftsmanshipStory'
 import { CTASection } from '@/components/home/CTASection'
 import { JsonLd } from '@/components/JsonLd'
 import { BRAND_NAME } from '@/lib/site-defaults'
@@ -43,6 +44,7 @@ export default async function HomePage() {
       <HeroSection hero={hero} />
       <StatsSection stats={settings?.stats ?? null} />
       <CategoryShowcase categories={categories} />
+      <CraftsmanshipStory />
       <FeaturedProducts products={featured} />
       <CTASection />
     </>

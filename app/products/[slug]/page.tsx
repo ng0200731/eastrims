@@ -12,6 +12,7 @@ import { SectionHeading } from '@/components/Section'
 import { JsonLd } from '@/components/JsonLd'
 import { CapabilityGate } from '@/components/three/CapabilityGate'
 import { ProductViewer } from '@/components/three/ProductViewer'
+import { ProductRevealPlayer } from '@/components/remotion/ProductRevealPlayer'
 
 export const revalidate = 60
 
@@ -136,6 +137,18 @@ export default async function ProductPage({ params }: PageProps) {
           )}
         </div>
       </div>
+
+      <section className="mt-16">
+        <h2 className="font-display text-2xl font-semibold tracking-tight md:text-3xl">
+          Cinematic reveal
+        </h2>
+        <div className="mt-6">
+          <ProductRevealPlayer
+            productName={product.title}
+            subtitle={product.shortDescription ?? undefined}
+          />
+        </div>
+      </section>
 
       <section className="mt-16">
         <h2 className="font-display text-2xl font-semibold tracking-tight md:text-3xl">

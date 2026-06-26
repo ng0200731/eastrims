@@ -3,6 +3,8 @@ import { displayFont, bodyFont, monoFont } from '@/lib/fonts'
 import { Navbar } from '@/components/layout/Navbar'
 import { Footer } from '@/components/layout/Footer'
 import { SkipLink } from '@/components/layout/SkipLink'
+import { SmoothScroll } from '@/components/providers/SmoothScroll'
+import { LoadingScreen } from '@/components/LoadingScreen'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -21,12 +23,15 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       className={`${displayFont.variable} ${bodyFont.variable} ${monoFont.variable}`}
     >
       <body className="bg-bg-base text-text-primary antialiased">
-        <SkipLink />
-        <Navbar />
-        <main id="main" className="pt-24">
-          {children}
-        </main>
-        <Footer />
+        <LoadingScreen />
+        <SmoothScroll>
+          <SkipLink />
+          <Navbar />
+          <main id="main" className="pt-24">
+            {children}
+          </main>
+          <Footer />
+        </SmoothScroll>
       </body>
     </html>
   )
