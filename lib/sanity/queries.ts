@@ -69,3 +69,18 @@ export const productsByCategoryQuery = groq`*[_type == "product" && category->sl
 }`
 
 export const allProductSlugsQuery = groq`*[_type == "product" && defined(slug.current)].slug.current`
+
+export const allMaterialsQuery = groq`*[_type == "material"] | order(title asc) {
+  title, "slug": slug.current, "texturePreviewUrl": texturePreview.asset->url, shaderConfig, properties
+}`
+
+export const allBlogPostsQuery = groq`*[_type == "blogPost"] | order(publishedAt desc) {
+  title, "slug": slug.current, excerpt, author, publishedAt, "coverImageUrl": coverImage.asset->url
+}`
+
+export const blogPostBySlugQuery = groq`*[_type == "blogPost" && slug.current == $slug][0] {
+  title, "slug": slug.current, excerpt, author, publishedAt,
+  "coverImageUrl": coverImage.asset->url, body
+}`
+
+export const allBlogSlugsQuery = groq`*[_type == "blogPost" && defined(slug.current)].slug.current`

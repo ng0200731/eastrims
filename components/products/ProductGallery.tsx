@@ -63,7 +63,6 @@ export function ProductGallery({ heroImageUrl, gallery, alt }: ProductGalleryPro
 // asset URL is preferred when available, this covers bare refs in the gallery.
 function sanityRefToUrl(ref?: string): string | null {
   if (!ref) return null
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const projectId = (process.env.NEXT_PUBLIC_SANITY_PROJECT_ID as string) ?? ''
   const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET ?? 'production'
   const decoded = ref.replace('image-', '').replace(/-(png|jpg|jpeg|gif|webp)$/, '.$1')

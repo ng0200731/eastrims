@@ -103,3 +103,24 @@ export interface HeroConfig {
   lightingPreset: string | null
   backgroundGradient: string | null
 }
+
+export interface MaterialListItem {
+  title: string
+  slug: string
+  texturePreviewUrl: string | null
+  shaderConfig: MaterialRef['shaderConfig']
+  properties: string[] | null
+}
+
+export interface BlogPostSummary {
+  title: string
+  slug: string
+  excerpt: string | null
+  author: string | null
+  publishedAt: string | null
+  coverImageUrl: string | null
+}
+
+export interface BlogPost extends BlogPostSummary {
+  body: unknown[] | null
+}

@@ -9,6 +9,7 @@ import { ProductGallery } from '@/components/products/ProductGallery'
 import { PortableText } from '@/components/PortableText'
 import { ProductCard } from '@/components/ProductCard'
 import { SectionHeading } from '@/components/Section'
+import { JsonLd } from '@/components/JsonLd'
 
 export const revalidate = 60
 
@@ -51,8 +52,19 @@ export default async function ProductPage({ params }: PageProps) {
   )
   if (!product) notFound()
 
+  const productLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: product.title,
+    description: product.shortDescription ?? undefined,
+    sku: product.sku ?? undefined,
+    category: product.category?.title,
+    image: product.heroImageUrl ? [product.heroImageUrl] : undefined,
+  }
+
   return (
     <Container className="py-12 pb-24">
+      <JsonLd data={productLd} />
       <nav className="mb-8 text-sm text-text-muted">
         <Link href="/products" className="cursor-pointer hover:text-accent-gold">
           ← Back to catalog
