@@ -15,7 +15,7 @@ const MUTED = '#a1a1aa'
  * product name → spec chips → CTA. 5s @ 30fps.
  * Played in-browser via @remotion/player (no server render needed).
  */
-export const ProductReveal: React.FC<ProductRevealProps> = ({ productName, subtitle }) => {
+export function ProductReveal({ productName, subtitle }: ProductRevealProps) {
   const frame = useCurrentFrame()
 
   const fadeIn = (start: number, end: number) =>
