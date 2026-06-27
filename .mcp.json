@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "google-images": {
+      "command": "npx",
+      "args": ["-y", "@srigi/mcp-google-images-search"],
+      "env": {
+        "API_KEY": "${GOOGLE_API_KEY}",
+        "SEARCH_ENGINE_ID": "${GOOGLE_CX}"
+      }
+    }
+  }
+}
