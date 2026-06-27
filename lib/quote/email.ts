@@ -31,7 +31,7 @@ export async function sendLeadEmail(data: QuoteLeadInput & { summary?: string })
   const resend = new Resend(key)
   await resend.emails.send({
     from: process.env.CONTACT_FROM_EMAIL ?? 'leads@eastrims.com',
-    to: process.env.SALES_EMAIL ?? 'sales@eastrims.com',
+    to: process.env.SALES_EMAIL ?? 'ice@eastrims.com',
     subject: `New quote request — ${data.name ?? 'Unknown'} (${data.company ?? '-'})`,
     text: summarize(data),
   })
