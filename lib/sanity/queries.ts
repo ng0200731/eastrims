@@ -16,7 +16,6 @@ export const siteSettingsQuery = groq`*[_id == "site-settings-main"][0] {
   brandColors,
   socialLinks,
   contactInfo,
-  stats,
   shippingRoutes
 }`
 

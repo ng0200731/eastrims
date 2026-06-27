@@ -40,7 +40,6 @@ export const siteSettings = defineType({
         { name: 'whatsapp', type: 'string' },
       ],
     }),
-    defineField({ name: 'stats', type: 'array', of: [{ type: 'stat' }] }),
     defineField({ name: 'shippingRoutes', type: 'array', of: [{ type: 'shippingRoute' }] }),
   ],
 })

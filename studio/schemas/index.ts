@@ -4,7 +4,6 @@ import type { SchemaTypeDefinition } from 'sanity'
 import { productVariant } from './objects/productVariant'
 import { hotspot } from './objects/hotspot'
 import { shippingRoute } from './objects/shippingRoute'
-import { stat } from './objects/stat'
 
 // Documents
 import { product } from './documents/product'
@@ -21,7 +20,6 @@ export const schemaTypes: SchemaTypeDefinition[] = [
   productVariant,
   hotspot,
   shippingRoute,
-  stat,
   // Documents
   product,
   category,

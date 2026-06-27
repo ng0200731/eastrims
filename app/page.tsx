@@ -12,7 +12,6 @@ import type {
   SiteSettings,
 } from '@/lib/sanity/types'
 import { HeroSection } from '@/components/home/HeroSection'
-import { StatsSection } from '@/components/home/StatsSection'
 import { CategoryShowcase } from '@/components/home/CategoryShowcase'
 import { FeaturedProducts } from '@/components/home/FeaturedProducts'
 import { CraftsmanshipStory } from '@/components/home/CraftsmanshipStory'
@@ -42,7 +41,6 @@ export default async function HomePage() {
     <>
       <JsonLd data={orgLd} />
       <HeroSection hero={hero} />
-      <StatsSection stats={settings?.stats ?? null} />
       <CategoryShowcase categories={categories} />
       <CraftsmanshipStory />
       <FeaturedProducts products={featured} />

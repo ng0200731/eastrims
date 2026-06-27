@@ -4,7 +4,6 @@ import { siteSettingsQuery } from '@/lib/sanity/queries'
 import type { SiteSettings } from '@/lib/sanity/types'
 import { Container } from '@/components/layout/Container'
 import { SectionHeading } from '@/components/Section'
-import { StatsSection } from '@/components/home/StatsSection'
 import { Reveal } from '@/components/Reveal'
 import { CapabilityGate } from '@/components/three/CapabilityGate'
 import { SupplyGlobe } from '@/components/three/SupplyGlobe'
@@ -41,8 +40,6 @@ export default async function AboutPage() {
           subtitle="We make the small things that signal quality — the labels, tags, and packaging that turn a garment into a brand."
         />
       </Container>
-
-      <StatsSection stats={settings?.stats ?? null} />
 
       <Container className="py-20">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-3">

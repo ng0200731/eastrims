@@ -72,11 +72,6 @@ export interface Category {
   heroImageUrl: string | null
 }
 
-export interface Stat {
-  value: string
-  label: string
-}
-
 export interface SiteSettings {
   title: string | null
   description: string | null
@@ -84,7 +79,6 @@ export interface SiteSettings {
   brandColors: Record<string, string> | null
   socialLinks: Record<string, string> | null
   contactInfo: Record<string, string> | null
-  stats: Stat[] | null
   shippingRoutes: Array<{
     origin: string
     destination: string
