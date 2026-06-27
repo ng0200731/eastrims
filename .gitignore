@@ -47,3 +47,14 @@ __pycache__/
 
 # remotion
 .remotion/
+
+# cloudflare / wrangler (OpenNext)
+.open-next/
+.wrangler/
+.dev.vars
+
+# standalone studio subproject
+studio/node_modules/
+studio/dist/
+studio/build/
+studio/.sanity/

@@ -12,7 +12,7 @@ storytelling, an interactive product viewer, and an AI-powered quote assistant.
 - **Three.js** + **React Three Fiber** + **Drei** + **postprocessing** (live 3D)
 - **Remotion** + **@remotion/player** (cinematic compositions, multi-platform)
 - **GSAP** + **Framer Motion** + **Lenis** (animation & smooth scroll)
-- **Sanity v3** (headless CMS, embedded studio)
+- **Sanity v3** (headless CMS; studio is a separate subproject — see `studio/`)
 - **Vercel Analytics**, **Anthropic SDK** (AI assistant), **Resend** (email)
 
 ## Getting started
@@ -23,7 +23,7 @@ cp .env.example .env.local   # fill in at least the Sanity project id
 npm run dev                  # http://localhost:3000
 ```
 
-Studio (CMS) at `/studio`. Marketing preview tool at `/marketing`.
+Sanity Studio (CMS): `cd studio && npm install && npm run dev` (separate subproject — the studio is too large to ship inside the edge Worker). Marketing preview at `/marketing`.
 
 ### Environment
 
@@ -66,13 +66,13 @@ GROQ reads (`lib/sanity/fetch.ts`) and revalidate on webhook (`/api/revalidate`)
 Pages render graceful empty/fallback states until content is published.
 
 ```
-app/            routes (home, products, materials, about, factory, blog, quote, contact, studio, marketing)
+app/            routes (home, products, materials, about, factory, blog, quote, contact, marketing)
 components/     UI (layout, home sections, three/, remotion/, quote/, products/)
 lib/sanity/     client, fetch, image, queries, types, writeClient
 lib/quote/      lead persistence + email + types
 lib/remotion/   platform configs
 lib/i18n/       locale config
-sanity/         studio config + schemas (documents + objects)
+studio/         standalone Sanity Studio (config + schemas — deploy separately, not in the Worker)
 remotion/       compositions + Root (render registry)
 ```
 
@@ -81,7 +81,7 @@ remotion/       compositions + Root (render registry)
 Documents: `product`, `category`, `material`, `marketingVideo`, `blogPost`,
 `quoteLead`, plus singletons `heroConfig` (`hero-config-main`) and `siteSettings`
 (`site-settings-main`). Objects: `productVariant`, `hotspot`, `shippingRoute`,
-`stat`. All editable via the embedded Studio at `/studio`.
+`stat`. All editable via the standalone Sanity Studio (see `studio/`).
 
 ## Key features by phase
 

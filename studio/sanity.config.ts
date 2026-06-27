@@ -25,12 +25,12 @@ const structure: StructureResolver = (S) =>
     ])
 
 export default defineConfig({
-  name: 'eastrims',
+  name: 'eastrims-studio',
   title: 'Eastrims CMS',
   projectId,
   dataset,
   apiVersion,
-  basePath: '/studio',
+  basePath: '/',
   plugins: [
     structureTool({ structure }),
     visionTool({ defaultApiVersion: apiVersion, defaultDataset: dataset }),
